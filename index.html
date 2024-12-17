@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votez Tom Pilate - Le Futur de la Web@cadémie !</title>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            z-index: -1;
+            transform: skewY(-6deg);
+            transform-origin: top left;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: slideIn 1s ease-out;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 2rem 0;
+        }
+
+        .photo-container {
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .photo-container img {
+            max-width: 300px;
+            max-height: 300px;
+            border-radius: 50%;
+            border: 5px solid #3498db;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-container img:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .programme {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            animation: slideIn 1s ease-out 0.5s both;
+        }
+
+        .programme:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        h2 {
+            color: #3498db;
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 1em;
+        }
+
+        ul {
+            padding-left: 20px;
+            list-style-type: none;
+        }
+
+        li {
+            margin-bottom: 1em;
+            padding-left: 30px;
+            position: relative;
+            transition: transform 0.2s ease;
+        }
+
+        li:before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        li:hover {
+            transform: translateX(10px);
+        }
+
+        .cta-button {
+            display: block;
+            width: 200px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: #e74c3c;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .cta-button:hover {
+            background-color: #c0392b;
+            transform: scale(1.1);
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f59b42;
+            opacity: 0;
+            animation: confettiExplosion 2s ease-out forwards;
+        }
+
+        @keyframes confettiExplosion {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--moveX), var(--moveY)) rotate(360deg); /* Explosion aléatoire */
+                opacity: 0;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tom Pilate - Votre Futur Délégué Web@cadémie</h1>
+    </header>
+
+    <div class="container">
+        <div class="photo-container">
+            <img src="/tom.jpg" alt="Photo de Tom Pilate">
+        </div>
+
+        <section class="programme">
+            <h2>Mon Programme pour une Web@cadémie Innovante</h2>
+            <p>Bien que je sois en plein déménagement, je tenais à partager mes engagements avec vous. Mon objectif principal ? Vous écouter et agir pour notre collectif !</p>
+            <ul id="programme-list">
+                <li>📌 <strong>Écoute et échanges réguliers</strong> : 15 minutes avec chacun pour connaître vos idées et besoins.</li>
+                <li>💡 <strong>Ateliers ciblés</strong> : 
+                    <ul>
+                        <li>Gestion de projet et organisation</li>
+                        <li>Aide académique et développement personnel</li>
+                        <li>Atelier en anglais</li>
+                    </ul>
+                </li>
+                <li>🤝 <strong>Accompagnement</strong> : Vous aider à trouver les bonnes solutions en cas de problème.</li>
+                <li>📣 <strong>Vie sur le campus</strong> : Remonter vos suggestions pour améliorer notre quotidien à Epitech.</li>
+            </ul>
+            <p>Ensemble, rendons notre parcours agréable, enrichissant et adapté à VOS objectifs. Votre voix compte, et je suis là pour vous !</p>
+            <a href="#" class="cta-button" id="vote-button">Votez pour Tom !</a>
+
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const programmeItems = document.querySelectorAll('#programme-list li');
+            programmeItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.animation = `fadeIn 0.5s ease-out ${index * 0.2}s forwards`;
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const ctaButton = document.querySelector('.cta-button');
+
+            ctaButton.addEventListener('click', (event) => {
+                event.preventDefault(); // Empêche l'action par défaut du bouton
+
+                const numberOfConfetti = 100; // Nombre de confettis à générer
+
+                for (let i = 0; i < numberOfConfetti; i++) {
+                    createConfetti();
+                }
+            });
+
+            function createConfetti() {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                document.body.appendChild(confetti);
+
+                // Positionne le confetti aléatoirement en haut de la page
+                const startPositionX = Math.random() * window.innerWidth; // Position X aléatoire
+                const startPositionY = -10; // Position initiale en haut de la page
+                confetti.style.left = `${startPositionX}px`;
+                confetti.style.top = `${startPositionY}px`;
+
+                // Définit le mouvement aléatoire dans l'animation
+                const moveX = (Math.random() - 0.5) * 300; // Mouvement horizontal aléatoire
+                const moveY = Math.random() * 1500 + 200; // Mouvement vertical aléatoire, doit être positif pour tomber
+
+                confetti.style.setProperty('--moveX', `${moveX}px`);
+                confetti.style.setProperty('--moveY', `${moveY}px`);
+
+                // Ajoute un délai avant de retirer le confetti
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>
